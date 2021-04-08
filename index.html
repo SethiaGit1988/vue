@@ -12,16 +12,26 @@
     <div style="padding-bottom: 1%;">
         <input type="text" v-model="message"/>
     </div>
+    <div style="padding-bottom: 1%;">
+        <li v-for="name in names">{{name}}</li>
+    </div>
     <div>
-        {{ message }}
+        <button v-on:click="Add"  >Add Players</button>
     </div> 
   </div>
   <script>
       new Vue({
           el:'#app',
-          data:{
-          message:'Hello'
-      }
+          data: {
+                 message:'',
+                 names:['sachin','dravid','ganguly']
+             },
+          methods:{
+              Add(){
+                  this.names.push(this.message);
+                  this.message='';
+              }
+          }   
       })
   </script>
 </body>
